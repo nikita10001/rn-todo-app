@@ -2,6 +2,7 @@ import {FC, useCallback} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {TodoRow} from './TodoRow';
 import {TodoItem} from 'types';
+import {COLORS} from 'style';
 
 interface TodoListProps {
   items: TodoItem[];
@@ -23,13 +24,10 @@ export const TodoList: FC<TodoListProps> = ({items}) => {
     <FlatList
       data={items}
       contentContainerStyle={{
-        paddingHorizontal: 10,
-        gap: 3,
+        flexGrow: 1,
       }}
       keyExtractor={item => item.id.toString()}
       renderItem={renderTodoItem}
     />
   );
 };
-
-const styles = StyleSheet.create({});

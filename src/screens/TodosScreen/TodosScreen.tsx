@@ -7,7 +7,7 @@ import {TodoList} from './components/TodoList';
 
 export const TodosScreen: FC<TodosScreenProps> = ({navigation, route}) => {
   return (
-    <Layout isVertPd>
+    <Layout>
       <TodoList items={TODOS} />
     </Layout>
   );
