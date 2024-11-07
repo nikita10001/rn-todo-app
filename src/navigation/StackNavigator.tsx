@@ -21,7 +21,7 @@ export const StackNavigator = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName={ScreensEnum.MainScreen}
+      initialRouteName={ScreensEnum.TodosScreen}
       screenOptions={{
         contentStyle: {
           backgroundColor: '#fff',
@@ -33,10 +33,10 @@ export const StackNavigator = () => {
       }}>
       <Stack.Screen
         options={{
-          title: 'Список дел',
+          title: 'Опись дел',
         }}
-        name={ScreensEnum.MainScreen}
-        component={Screens.MainScreen}
+        name={ScreensEnum.TodosScreen}
+        component={Screens.TodosScreen}
       />
 
       {/* <Stack.Screen

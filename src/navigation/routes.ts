@@ -6,20 +6,20 @@ import {
 } from '@react-navigation/native-stack';
 
 export enum ScreensEnum {
-  MainScreen = 'MainScreen',
+  TodosScreen = 'TodosScreen',
 }
 
 type Routes = ScreensEnum;
 
-type MainScreenParams = {};
+type TodosScreenParams = {};
 
 export type RootStackParamList = {
-  [ScreensEnum.MainScreen]: MainScreenParams;
+  [ScreensEnum.TodosScreen]: TodosScreenParams;
 };
 
-export type MainScreenProps = NativeStackScreenProps<
+export type TodosScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  ScreensEnum.MainScreen
+  ScreensEnum.TodosScreen
 >;
 
 export const useNavigation = () =>

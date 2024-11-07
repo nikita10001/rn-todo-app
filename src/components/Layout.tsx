@@ -34,7 +34,7 @@ export const Layout: FC<LayoutProps> = ({
         flex: 1,
         backgroundColor: COLORS.mainBg,
         paddingVertical: isVertPd ? 10 : 0,
-        paddingHorizontal: isPadding ? 15 : 0,
+        paddingHorizontal: isPadding ? 10 : 0,
         ...style,
       }}>
       <StatusBar

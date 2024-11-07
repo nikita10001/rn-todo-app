@@ -14,4 +14,52 @@ export const TODOS: TodoItem[] = [
     description: 'Описание задачи 3',
     completed: false,
   },
+  {
+    id: 4,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 5,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 6,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 7,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 8,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 9,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 10,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
+  {
+    id: 11,
+    title: 'Задача 3',
+    description: 'Описание задачи 3',
+    completed: false,
+  },
 ];
