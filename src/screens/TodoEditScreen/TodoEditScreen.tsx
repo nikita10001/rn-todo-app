@@ -54,8 +54,8 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
           style={styles.titleInput}
           value={title}
           onChangeText={setTitle}
+          mb={10}
           placeholder="Заголовок"
-          mb={5}
         />
         <Input
           lineColor="transparent"

@@ -7,7 +7,7 @@ import {TodoAddBtn} from './components/TodoAddBtn';
 import {useAppDispatch, useAppSelector} from 'hooks';
 import {getAllTodos, todoSelectors} from 'store';
 
-export const TodosScreen: FC<TodosScreenProps> = ({navigation, route}) => {
+export const TodosScreen: FC<TodosScreenProps> = ({navigation}) => {
   const dispatch = useAppDispatch();
   const {items, isLoading, error} = useAppSelector(todoSelectors.getSlice);
 

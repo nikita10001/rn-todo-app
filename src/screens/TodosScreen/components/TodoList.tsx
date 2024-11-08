@@ -2,6 +2,7 @@ import {FC, useCallback} from 'react';
 import {FlatList} from 'react-native';
 import {TodoRow} from './TodoRow';
 import {TodoItem} from 'types';
+import {ЕmptyList} from './ЕmptyList';
 
 interface TodoListProps {
   items: TodoItem[];
@@ -14,6 +15,11 @@ export const TodoList: FC<TodoListProps> = ({items, isLoading, fetchTodos}) => {
     ({item}: {item: TodoItem}) => <TodoRow {...item} />,
     [],
   );
+
+  if (!items.length) {
+    return <ЕmptyList />;
+  }
+
   return (
     <FlatList
       onRefresh={fetchTodos}

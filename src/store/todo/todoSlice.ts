@@ -73,7 +73,7 @@ const todoSlice = createSlice({
       .addCase(deleteTodo.pending, state => {
         state.isLoading = true;
       })
-      .addCase(deleteTodo.fulfilled, (state, action) => {
+      .addCase(deleteTodo.fulfilled, state => {
         state.isLoading = false;
       })
       .addCase(deleteTodo.rejected, (state, action) => {
