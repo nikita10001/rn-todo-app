@@ -23,6 +23,8 @@ export const getStyle = (props: any) => {
       fontSize: FSize.S16,
       height: 50,
       color: COLORS.dark,
+      paddingTop: 0,
+      paddingBottom: 0,
       flex: 1,
       ...inputStyle,
       ...style,

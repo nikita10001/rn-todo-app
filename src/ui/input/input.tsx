@@ -1,11 +1,5 @@
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  TextInputProps,
-  TouchableOpacity,
-} from 'react-native';
-import React, {FC, ReactNode, useState} from 'react';
+import {View, TextInput, TextInputProps} from 'react-native';
+import React, {FC} from 'react';
 import {getStyle} from './input.styles';
 import {Text} from 'ui';
 
