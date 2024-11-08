@@ -1,7 +1,7 @@
 import {AddIcon} from 'assets';
 import {windowHeight, windowWidth} from 'constants/screen';
 import {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {COLORS} from 'style';
 import {Button} from 'ui';
 

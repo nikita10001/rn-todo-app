@@ -1,8 +1,9 @@
 import {Layout} from 'components';
-import {useAppDispatch} from 'hooks';
+import {useAppDispatch, useAppSelector} from 'hooks';
 import {TodoEditScreenProps} from 'navigation';
 import {FC, useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
+import {createTodo, todoSelectors, updateTodo} from 'store';
 import {Button, FSize} from 'ui';
 import {Input} from 'ui/input';
 
@@ -10,11 +11,14 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
   navigation,
   route,
 }) => {
-  const {id, isEditing} = route.params;
-  const dispatch = useAppDispatch();
+  const {todo} = route.params;
+  const isEditing = !!todo?.id;
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(todoSelectors.getIsLoading);
+
+  const [title, setTitle] = useState(todo?.title || '');
+  const [description, setDescription] = useState(todo?.description || '');
 
   useEffect(() => {
     navigation.setOptions({
@@ -22,26 +26,32 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
     });
   }, [isEditing]);
 
-  const disabled = !title;
+  const hasChanges =
+    (todo?.description || '') !== description || (todo?.title || '') !== title;
+
+  const disabled = !title || isLoading || !hasChanges;
 
   const handleSave = () => {
-    if (disabled) return;
+    const newTodo = {
+      ...todo,
+      title: title.trim(),
+      description: description.trim(),
+    };
+
+    const onSuccess = () => navigation.goBack();
 
     if (isEditing) {
-      // editTodo({id, title, description})
+      dispatch(updateTodo(newTodo)).then(onSuccess);
     } else {
-      // createTodo({title, description});
+      dispatch(createTodo(newTodo)).then(onSuccess);
     }
   };
 
   return (
     <Layout>
-      <ScrollView style={{flex: 1, padding: 10}}>
+      <ScrollView style={styles.container}>
         <Input
-          style={{
-            height: 42,
-            fontSize: FSize.S18,
-          }}
+          style={styles.titleInput}
           value={title}
           onChangeText={setTitle}
           placeholder="Заголовок"
@@ -49,7 +59,7 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
         />
         <Input
           lineColor="transparent"
-          style={{flex: 1, height: 230}}
+          style={styles.descriptionInput}
           value={description}
           onChangeText={setDescription}
           placeholder="Описание"
@@ -58,8 +68,8 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
         />
       </ScrollView>
 
-      <View style={{paddingHorizontal: 10, paddingVertical: 5}}>
-        <Button disabled={disabled} onPress={handleSave}>
+      <View style={styles.btnContainer}>
+        <Button loading={isLoading} disabled={disabled} onPress={handleSave}>
           Сохранить
         </Button>
       </View>
@@ -67,4 +77,12 @@ export const TodoEditScreen: FC<TodoEditScreenProps> = ({
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {flex: 1, padding: 10},
+  titleInput: {
+    height: 42,
+    fontSize: FSize.S18,
+  },
+  descriptionInput: {flex: 1, height: 230},
+  btnContainer: {paddingHorizontal: 10, paddingVertical: 5},
+});

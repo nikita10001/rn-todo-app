@@ -1,19 +1,29 @@
 import {Layout} from 'components';
-import {FC} from 'react';
+import {FC, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import {ScreensEnum, TodosScreenProps} from 'navigation';
-import {TODOS} from 'data/todo';
 import {TodoList} from './components/TodoList';
-import {windowHeight, windowWidth} from 'constants/screen';
 import {TodoAddBtn} from './components/TodoAddBtn';
+import {useAppDispatch, useAppSelector} from 'hooks';
+import {getAllTodos, todoSelectors} from 'store';
 
 export const TodosScreen: FC<TodosScreenProps> = ({navigation, route}) => {
+  const dispatch = useAppDispatch();
+  const {items, isLoading, error} = useAppSelector(todoSelectors.getSlice);
+
+  const fetchTodos = async () => {
+    dispatch(getAllTodos());
+  };
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
   const handleAddNavigate = () => {
     navigation.navigate(ScreensEnum.TodoEditScreen, {});
   };
   return (
     <Layout>
-      <TodoList items={TODOS} />
+      <TodoList fetchTodos={fetchTodos} isLoading={isLoading} items={items} />
       <TodoAddBtn onPress={handleAddNavigate} />
     </Layout>
   );

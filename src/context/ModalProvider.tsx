@@ -48,7 +48,10 @@ export const ModalProvider: FC<ModalProviderProps> = ({children}) => {
                 borderWidth: 1,
               }}
               textStyle={{fontSize: FSize.S14, fontFamily: FWeight.Regular}}
-              onPress={hideModal}>
+              onPress={() => {
+                hideModal();
+                modalParams?.onCancel && modalParams.onCancel();
+              }}>
               {'Отмена'}
             </Button>
             <Button

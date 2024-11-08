@@ -1,20 +1,23 @@
 import {FC, useCallback} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList} from 'react-native';
 import {TodoRow} from './TodoRow';
 import {TodoItem} from 'types';
-import {COLORS} from 'style';
 
 interface TodoListProps {
   items: TodoItem[];
+  fetchTodos: () => void;
+  isLoading?: boolean;
 }
 
-export const TodoList: FC<TodoListProps> = ({items}) => {
+export const TodoList: FC<TodoListProps> = ({items, isLoading, fetchTodos}) => {
   const renderTodoItem = useCallback(
     ({item}: {item: TodoItem}) => <TodoRow {...item} />,
     [],
   );
   return (
     <FlatList
+      onRefresh={fetchTodos}
+      refreshing={isLoading}
       initialNumToRender={40}
       data={items}
       contentContainerStyle={{

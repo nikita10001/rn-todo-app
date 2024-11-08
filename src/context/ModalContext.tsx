@@ -5,6 +5,7 @@ export interface ModalParams {
   text?: string;
   confirmText?: string;
   onConfirm?: () => void;
+  onCancel?: () => void;
 }
 
 interface ModalContextType {

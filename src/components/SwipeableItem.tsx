@@ -16,15 +16,17 @@ export const SwipeableItem: FC<SwipeableItemProps> = ({children, onDelete}) => {
   const {showModal} = useModal();
 
   const handleDelete = () => {
+    const close = () => swipeableRef.current?.close();
     const onConfirm = () => {
       onDelete?.();
-      swipeableRef.current?.close();
+      close();
     };
     showModal({
       title: 'Удаление задачи',
       text: 'Вы действительно хотите удалить задачу?',
       confirmText: 'Удалить',
       onConfirm,
+      onCancel: close,
     });
   };
 

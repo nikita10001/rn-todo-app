@@ -2,6 +2,6 @@ import {TodoItem} from 'types';
 
 export interface TodoState {
   isLoading: boolean;
-  error: string | null;
+  error?: string;
   items: TodoItem[];
 }

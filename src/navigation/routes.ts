@@ -4,6 +4,7 @@ import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+import {TodoItem} from 'types';
 
 export enum ScreensEnum {
   TodosScreen = 'TodosScreen',
@@ -14,8 +15,7 @@ type Routes = ScreensEnum;
 
 type TodosScreenParams = {};
 type TodoEditScreenParams = {
-  id?: number;
-  isEditing?: boolean;
+  todo?: TodoItem;
 };
 
 export type RootStackParamList = {

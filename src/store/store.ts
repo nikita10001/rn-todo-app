@@ -3,7 +3,7 @@ import {todoReducer} from './todo';
 
 export const store = configureStore({
   reducer: {
-    user: todoReducer,
+    todo: todoReducer,
   },
 });
 

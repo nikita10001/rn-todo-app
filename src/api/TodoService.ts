@@ -6,7 +6,7 @@ export class TodoService {
     const {data} = await apiService.get(`/todo`);
     return data;
   }
-  static async create(todo: Omit<TodoItem, 'id' | 'completed'>) {
+  static async create(todo: Partial<TodoItem>) {
     const {data} = await apiService.post('/todo', todo);
     return data;
   }
@@ -15,7 +15,7 @@ export class TodoService {
     const {data} = await apiService.put(`/todo/${id}`, body);
     return data;
   }
-  static async patch(todoId: number) {
+  static async toggle(todoId: number) {
     const {data} = await apiService.patch(`/todo/${todoId}/toggle`);
     return data;
   }
