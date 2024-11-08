@@ -15,6 +15,7 @@ const todoSlice = createSlice({
   extraReducers: builder => {},
 
   selectors: {
+    getSlice: (sliceState: TodoState) => sliceState,
     getItems: (sliceState: TodoState) => sliceState.items,
     getIsLoading: (sliceState: TodoState) => sliceState.isLoading,
     getError: (sliceState: TodoState) => sliceState.error,
