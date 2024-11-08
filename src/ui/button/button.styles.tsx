@@ -12,6 +12,7 @@ export const buttonTypeStyles: TButtonStyle = {
   [ButtonType.PRIMARY]: {
     container: {
       backgroundColor: COLORS.primary,
+      borderColor: COLORS.primary,
     },
     text: {
       color: COLORS.white,
