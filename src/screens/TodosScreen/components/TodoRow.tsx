@@ -56,6 +56,7 @@ export const TodoRow: FC<TodoRowProps> = memo(todo => {
           />
           <View
             style={{
+              justifyContent: 'center',
               opacity: isChecked ? 0.6 : 1,
               width: windowWidth - 65,
             }}>
@@ -76,6 +77,7 @@ export const TodoRow: FC<TodoRowProps> = memo(todo => {
 
 const styles = StyleSheet.create({
   row: {
+    minHeight: 45,
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingVertical: 8,

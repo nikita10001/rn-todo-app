@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     overflow: 'hidden',
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 60,

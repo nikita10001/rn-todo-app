@@ -43,8 +43,8 @@ export const TodoFilter: FC<TodoFilterProps> = ({
     <ScrollView
       horizontal
       style={{
-        minHeight: 45,
-        maxHeight: 45,
+        minHeight: 52,
+        maxHeight: 52,
       }}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.contentContainer}>
@@ -55,7 +55,7 @@ export const TodoFilter: FC<TodoFilterProps> = ({
             onPress={() => onFilterChange?.(filter)}
             type={isActive ? ButtonType.PRIMARY : ButtonType.OUTLINE}
             style={styles.btn}
-            textStyle={{fontSize: 13}}
+            textStyle={{fontSize: 14}}
             key={filter.id}>
             {filter.label}
           </Button>
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: 'auto',
-    paddingHorizontal: 13,
-    height: 28,
+    paddingHorizontal: 15,
+    height: 32,
     borderWidth: 1,
   },
 });
