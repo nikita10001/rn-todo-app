@@ -18,7 +18,7 @@ export const TODOS: TodoItem[] = [
     id: 4,
     title: 'Задача 3',
     description: 'Описание задачи 3',
-    completed: false,
+    completed: true,
   },
   {
     id: 5,
@@ -36,7 +36,7 @@ export const TODOS: TodoItem[] = [
     id: 7,
     title: 'Задача 3',
     description: 'Описание задачи 3',
-    completed: false,
+    completed: true,
   },
   {
     id: 8,
@@ -48,7 +48,7 @@ export const TODOS: TodoItem[] = [
     id: 9,
     title: 'Задача 3',
     description: 'Описание задачи 3',
-    completed: false,
+    completed: true,
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ export const TODOS: TodoItem[] = [
     id: 1315,
     title: 'Задача 3',
     description: 'Описание задачи 3',
-    completed: false,
+    completed: true,
   },
 
   {
@@ -99,7 +99,7 @@ export const TODOS: TodoItem[] = [
     id: 1167,
     title: 'Задача 3',
     description: 'Описание задачи 3',
-    completed: false,
+    completed: true,
   },
 
   {

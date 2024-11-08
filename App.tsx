@@ -5,15 +5,18 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {Provider} from 'react-redux';
 import {store} from 'store';
+import {ModalProvider} from 'context';
 
 const App = () => {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <Provider store={store}>
         <SafeAreaProvider style={{flex: 1}}>
-          <NavigationContainer>
-            <StackNavigator />
-          </NavigationContainer>
+          <ModalProvider>
+            <NavigationContainer>
+              <StackNavigator />
+            </NavigationContainer>
+          </ModalProvider>
         </SafeAreaProvider>
       </Provider>
     </GestureHandlerRootView>
