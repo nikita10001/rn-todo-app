@@ -4,6 +4,7 @@ import {RootStackParamList, ScreensEnum} from './routes';
 import * as Screens from 'screens';
 import {COLORS} from 'style';
 import * as SplashScreen from 'expo-splash-screen';
+import {FSize, FWeight} from 'ui';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -27,6 +28,10 @@ export const StackNavigator = () => {
           backgroundColor: '#fff',
         },
         headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontSize: FSize.S17,
+          fontFamily: FWeight.Medium,
+        },
         headerStyle: {
           backgroundColor: COLORS.mainBg,
         },
@@ -39,18 +44,14 @@ export const StackNavigator = () => {
         component={Screens.TodosScreen}
       />
 
-      {/* <Stack.Screen
+      <Stack.Screen
         options={{
           title: '',
-
-          headerStyle: {
-            backgroundColor: COLORS.white,
-          },
           presentation: 'modal',
         }}
-        name={}
-        component={}
-      /> */}
+        name={ScreensEnum.TodoEditScreen}
+        component={Screens.TodoEditScreen}
+      />
     </Stack.Navigator>
   );
 };

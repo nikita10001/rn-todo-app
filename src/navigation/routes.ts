@@ -7,19 +7,29 @@ import {
 
 export enum ScreensEnum {
   TodosScreen = 'TodosScreen',
+  TodoEditScreen = 'TodoEditScreen',
 }
 
 type Routes = ScreensEnum;
 
 type TodosScreenParams = {};
+type TodoEditScreenParams = {
+  id?: number;
+  isEditing?: boolean;
+};
 
 export type RootStackParamList = {
   [ScreensEnum.TodosScreen]: TodosScreenParams;
+  [ScreensEnum.TodoEditScreen]: TodoEditScreenParams;
 };
 
 export type TodosScreenProps = NativeStackScreenProps<
   RootStackParamList,
   ScreensEnum.TodosScreen
+>;
+export type TodoEditScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  ScreensEnum.TodoEditScreen
 >;
 
 export const useNavigation = () =>
