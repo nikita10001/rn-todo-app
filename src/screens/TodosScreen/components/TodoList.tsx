@@ -10,18 +10,12 @@ interface TodoListProps {
 
 export const TodoList: FC<TodoListProps> = ({items}) => {
   const renderTodoItem = useCallback(
-    ({item}: {item: TodoItem}) => (
-      <TodoRow
-        title={item.title}
-        description={item.description}
-        completed={item.completed}
-      />
-    ),
+    ({item}: {item: TodoItem}) => <TodoRow {...item} />,
     [],
   );
-
   return (
     <FlatList
+      initialNumToRender={40}
       data={items}
       contentContainerStyle={{
         flexGrow: 1,
