@@ -13,7 +13,7 @@ export const StackNavigator = () => {
     (async () => {
       try {
         await SplashScreen.hideAsync();
-      } catch (err) {
+      } catch (error) {
         await SplashScreen.hideAsync();
       } finally {
       }

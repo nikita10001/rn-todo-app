@@ -16,12 +16,9 @@ export const TodoList: FC<TodoListProps> = ({items, isLoading, fetchTodos}) => {
     [],
   );
 
-  if (!items.length) {
-    return <ЕmptyList />;
-  }
-
   return (
     <FlatList
+      ListEmptyComponent={<ЕmptyList />}
       onRefresh={fetchTodos}
       refreshing={isLoading}
       initialNumToRender={40}
