@@ -1,23 +1,12 @@
-import {
-  Keyboard,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  ViewProps,
-  ViewStyle,
-} from 'react-native';
+import {ScrollView, StatusBar, View, ViewStyle} from 'react-native';
 import React, {FC, PropsWithChildren, useEffect} from 'react';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {COLORS} from 'style';
 
 interface LayoutProps extends PropsWithChildren {
   style?: ViewStyle;
   isPadding?: boolean;
   isVertPd?: boolean;
-  statusBarColor?: string;
-  barStyle?: 'dark-content' | 'light-content';
+  isScroll?: boolean;
 }
 
 export const Layout: FC<LayoutProps> = ({
@@ -25,8 +14,6 @@ export const Layout: FC<LayoutProps> = ({
   style,
   isVertPd = false,
   isPadding = false,
-  statusBarColor = COLORS.mainBg,
-  barStyle,
 }) => {
   return (
     <View
@@ -37,10 +24,7 @@ export const Layout: FC<LayoutProps> = ({
         paddingHorizontal: isPadding ? 10 : 0,
         ...style,
       }}>
-      <StatusBar
-        barStyle={barStyle || 'dark-content'}
-        backgroundColor={statusBarColor}
-      />
+      <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.mainBg} />
 
       {children}
     </View>

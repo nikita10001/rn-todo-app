@@ -3,7 +3,6 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   View,
-  ViewStyle,
 } from 'react-native';
 import React, {FC} from 'react';
 import {Modal} from 'react-native';

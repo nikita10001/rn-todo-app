@@ -26,49 +26,47 @@ export const ModalProvider: FC<ModalProviderProps> = ({children}) => {
   return (
     <ModalContext.Provider value={{showModal, hideModal}}>
       {children}
-      {modalVisible && (
-        <ModalWrapper setVisible={hideModal} visible={modalVisible}>
-          <View style={styles.modalContent}>
-            {modalParams?.title && (
-              <Text w={FWeight.SemiBold} fs={FSize.S17} mb={1}>
-                {modalParams.title}
-              </Text>
-            )}
-            {modalParams?.text && (
-              <Text align="center" w={FWeight.Regular} fs={FSize.S14} mb={18}>
-                {modalParams.text}
-              </Text>
-            )}
-            <View style={{flexDirection: 'row', gap: 5}}>
-              <Button
-                type={ButtonType.OUTLINE}
-                style={{
-                  flex: 1,
-                  height: 33,
-                  paddingHorizontal: 0,
-                  borderWidth: 1,
-                }}
-                textStyle={{fontSize: FSize.S14, fontFamily: FWeight.Regular}}
-                onPress={hideModal}>
-                {'Отмена'}
-              </Button>
-              <Button
-                style={{
-                  flex: 1,
-                  height: 33,
-                  paddingHorizontal: 0,
-                }}
-                textStyle={{fontSize: FSize.S14, fontFamily: FWeight.Regular}}
-                onPress={() => {
-                  hideModal();
-                  modalParams?.onConfirm && modalParams.onConfirm();
-                }}>
-                {modalParams?.confirmText || 'Подтвердить'}
-              </Button>
-            </View>
+      <ModalWrapper setVisible={hideModal} visible={modalVisible}>
+        <View style={styles.modalContent}>
+          {modalParams?.title && (
+            <Text w={FWeight.SemiBold} fs={FSize.S17} mb={1}>
+              {modalParams.title}
+            </Text>
+          )}
+          {modalParams?.text && (
+            <Text align="center" w={FWeight.Regular} fs={FSize.S14} mb={18}>
+              {modalParams.text}
+            </Text>
+          )}
+          <View style={{flexDirection: 'row', gap: 5}}>
+            <Button
+              type={ButtonType.OUTLINE}
+              style={{
+                flex: 1,
+                height: 33,
+                paddingHorizontal: 0,
+                borderWidth: 1,
+              }}
+              textStyle={{fontSize: FSize.S14, fontFamily: FWeight.Regular}}
+              onPress={hideModal}>
+              {'Отмена'}
+            </Button>
+            <Button
+              style={{
+                flex: 1,
+                height: 33,
+                paddingHorizontal: 0,
+              }}
+              textStyle={{fontSize: FSize.S14, fontFamily: FWeight.Regular}}
+              onPress={() => {
+                hideModal();
+                modalParams?.onConfirm && modalParams.onConfirm();
+              }}>
+              {modalParams?.confirmText || 'Подтвердить'}
+            </Button>
           </View>
-        </ModalWrapper>
-      )}
+        </View>
+      </ModalWrapper>
     </ModalContext.Provider>
   );
 };
