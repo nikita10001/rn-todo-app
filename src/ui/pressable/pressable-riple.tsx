@@ -4,7 +4,6 @@ import {COLORS} from 'style';
 
 interface PressableRippleProps extends PressableProps {
   children: ReactNode;
-  // style?: ViewStyle | ViewStyle[];
 }
 
 export const PressableRipple: FC<PressableRippleProps> = ({

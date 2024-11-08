@@ -17,6 +17,7 @@ module.exports = {
         root: ['./src'],
       },
     ],
+    'module:react-native-dotenv',
     'react-native-reanimated/plugin',
   ],
 };

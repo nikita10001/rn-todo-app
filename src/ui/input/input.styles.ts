@@ -10,7 +10,6 @@ export const getStyle = (props: any) => {
     colorLine = lineColor;
   }
 
-  //correct types??
   const computedStyle: Record<string, ViewStyle | TextStyle> = {
     container: {
       marginBottom: mb,
@@ -39,7 +38,6 @@ export const getStyle = (props: any) => {
       fontSize: FSize.S12,
       color: isError ? COLORS.redNotification : COLORS.dark,
       position: 'absolute',
-      // -19 ?
       bottom: -18,
     },
   };

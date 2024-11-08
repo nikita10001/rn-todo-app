@@ -43,6 +43,7 @@ export const TodoFilter: FC<TodoFilterProps> = ({
     <ScrollView
       horizontal
       style={{
+        minHeight: 45,
         maxHeight: 45,
       }}
       showsHorizontalScrollIndicator={false}

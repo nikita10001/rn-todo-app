@@ -34,7 +34,7 @@ const todoSlice = createSlice({
       })
       .addCase(createTodo.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items.push(action.payload);
+        state.items.unshift(action.payload);
       })
       .addCase(createTodo.rejected, (state, action) => {
         state.isLoading = false;
