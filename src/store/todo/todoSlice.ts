@@ -1,7 +1,6 @@
-import {TodoItem} from 'types';
 import {createTodo, deleteTodo, getAllTodos, toggleTodo, updateTodo} from '.';
 import {TodoState} from './types';
-import {PayloadAction, createSlice} from '@reduxjs/toolkit/react';
+import {createSlice} from '@reduxjs/toolkit/react';
 
 const initialState: TodoState = {
   isLoading: false,

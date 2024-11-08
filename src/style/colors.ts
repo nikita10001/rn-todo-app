@@ -25,6 +25,6 @@ export const COLORS = {
   transparent: 'transparent',
   ripple: 'rgba(0,0,0,0.07)',
   rippleBtn: 'rgba(0,0,0,0.1)',
-  redRgba: 'rgba(255,0,0,0.25)',
+  redRgba: 'rgba(255,0,0,0.2)',
   redNotification: '#D7002F',
 };

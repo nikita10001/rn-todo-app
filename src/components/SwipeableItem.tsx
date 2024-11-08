@@ -4,6 +4,7 @@ import {Swipeable} from 'react-native-gesture-handler';
 import {COLORS} from 'style';
 import {DeleteIcon} from 'assets';
 import {useModal} from 'context';
+import {PressableRipple} from 'ui';
 
 interface SwipeableItemProps {
   children?: JSX.Element;
@@ -40,9 +41,9 @@ export const SwipeableItem: FC<SwipeableItemProps> = ({children, onDelete}) => {
     return (
       <Animated.View
         style={[styles.rightAction, {transform: [{translateX: trans}]}]}>
-        <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+        <PressableRipple style={styles.deleteButton} onPress={handleDelete}>
           <DeleteIcon />
-        </TouchableOpacity>
+        </PressableRipple>
       </Animated.View>
     );
   };
@@ -63,13 +64,15 @@ const styles = StyleSheet.create({
     width: 60,
     height: '100%',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   deleteButton: {
-    width: 60,
-    height: '100%',
+    overflow: 'hidden',
+    width: 45,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 60,
     backgroundColor: COLORS.redRgba,
   },
 });
