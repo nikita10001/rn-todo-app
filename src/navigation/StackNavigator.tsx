@@ -22,7 +22,7 @@ export const StackNavigator = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName={ScreensEnum.TodosScreen}
+      initialRouteName={ScreensEnum.NotesScreen}
       screenOptions={{
         contentStyle: {
           backgroundColor: '#fff',
@@ -36,6 +36,13 @@ export const StackNavigator = () => {
           backgroundColor: COLORS.mainBg,
         },
       }}>
+      <Stack.Screen
+        options={{
+          title: 'Заметки',
+        }}
+        name={ScreensEnum.NotesScreen}
+        component={Screens.NotesScreen}
+      />
       <Stack.Screen
         options={{
           title: 'Опись дел',
