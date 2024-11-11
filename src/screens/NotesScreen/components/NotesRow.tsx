@@ -42,10 +42,14 @@ export const NotesRow: FC<NotesRowProps> = memo(
           style={{
             justifyContent: 'center',
           }}>
-          <Text numberOfLines={1} w={FWeight.Medium}>
+          <Text color={COLORS.noteText} numberOfLines={1} w={FWeight.Medium}>
             {title}
           </Text>
-          {description && <Text numberOfLines={2}>{description}</Text>}
+          {description && (
+            <Text color={COLORS.noteText} numberOfLines={2}>
+              {description}
+            </Text>
+          )}
         </View>
       </Card>
     );
@@ -55,6 +59,7 @@ export const NotesRow: FC<NotesRowProps> = memo(
 const styles = StyleSheet.create({
   row: {
     flex: 1,
+    backgroundColor: COLORS.noteBackground,
     paddingHorizontal: 12,
     paddingVertical: 8,
   },

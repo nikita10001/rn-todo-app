@@ -7,6 +7,9 @@ export const COLORS = {
   black100: 'rgba(0,0,0,0.1)',
   black200: 'rgba(0,0,0,0.2)',
 
+  noteBackground: '#201f20',
+  noteText: '#e9e9e9',
+
   dark: '#333',
 
   primary: '#02929A',

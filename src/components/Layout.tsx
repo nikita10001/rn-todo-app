@@ -1,6 +1,7 @@
 import {ScrollView, StatusBar, View, ViewStyle} from 'react-native';
 import React, {FC, PropsWithChildren, useEffect} from 'react';
 import {COLORS} from 'style';
+import {Theme, useTheme} from 'context';
 
 interface LayoutProps extends PropsWithChildren {
   style?: ViewStyle;
@@ -15,16 +16,21 @@ export const Layout: FC<LayoutProps> = ({
   isVertPd = false,
   isPadding = false,
 }) => {
+  const {theme, colors} = useTheme();
+  const isDark = theme === Theme.Dark;
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: COLORS.mainBg,
+        backgroundColor: colors.background,
         paddingVertical: isVertPd ? 10 : 0,
         paddingHorizontal: isPadding ? 10 : 0,
         ...style,
       }}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.mainBg} />
+      <StatusBar
+        barStyle={isDark ? 'light-content' : 'dark-content'}
+        backgroundColor={colors.background}
+      />
 
       {children}
     </View>

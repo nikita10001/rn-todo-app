@@ -1,10 +1,16 @@
 import {Layout} from 'components';
 import {FC, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {
+  StyleSheet,
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  View,
+} from 'react-native';
 import {NotesList} from './components/NotesList';
 import {TODOS} from 'data/todo';
 import {NotesScreenProps} from 'navigation';
-import {Button} from 'ui';
+import {Button, Text} from 'ui';
+import {useTheme} from 'context';
 
 export enum DisplayMode {
   LIST,
@@ -15,6 +21,8 @@ export const NotesScreen: FC<NotesScreenProps> = ({}) => {
   const [displayMode, setDisplayMode] = useState<DisplayMode>(
     DisplayMode.CARDS,
   );
+
+  const {theme, setTheme} = useTheme();
 
   const selectMode = (mode: DisplayMode) => {
     setDisplayMode(mode);

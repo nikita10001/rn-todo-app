@@ -3,7 +3,7 @@ import React, {FC, useRef} from 'react';
 import {Swipeable} from 'react-native-gesture-handler';
 import {COLORS} from 'style';
 import {DeleteIcon} from 'assets';
-import {useModal} from 'context';
+import {useModal} from 'context/modal';
 import {PressableRipple} from 'ui';
 
 interface SwipeableItemProps {

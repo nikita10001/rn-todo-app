@@ -4,11 +4,14 @@ import {RootStackParamList, ScreensEnum} from './routes';
 import * as Screens from 'screens';
 import {COLORS} from 'style';
 import * as SplashScreen from 'expo-splash-screen';
-import {FSize, FWeight} from 'ui';
+import {Button, ButtonType, FSize, FWeight} from 'ui';
+import {Theme, useTheme} from 'context';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const StackNavigator = () => {
+  const {theme, setTheme, colors} = useTheme();
+
   useEffect(() => {
     (async () => {
       try {
@@ -20,20 +23,30 @@ export const StackNavigator = () => {
     })();
   }, []);
 
+  const isLight = theme === Theme.Light;
+  const toggleTheme = () => {
+    setTheme(isLight ? Theme.Dark : Theme.Light);
+  };
+
   return (
     <Stack.Navigator
       initialRouteName={ScreensEnum.NotesScreen}
       screenOptions={{
-        contentStyle: {
-          backgroundColor: '#fff',
+        headerRight: props => {
+          return (
+            <Button onPress={toggleTheme} type={ButtonType.TEXT}>
+              {isLight ? 'Тёмная' : 'Светлая'}
+            </Button>
+          );
         },
         headerTitleAlign: 'center',
         headerTitleStyle: {
           fontSize: FSize.S17,
+          color: colors.text,
           fontFamily: FWeight.Medium,
         },
         headerStyle: {
-          backgroundColor: COLORS.mainBg,
+          backgroundColor: colors.background,
         },
       }}>
       <Stack.Screen
