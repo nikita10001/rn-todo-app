@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
+import {Switch} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList, ScreensEnum} from './routes';
 import * as Screens from 'screens';
-import {COLORS} from 'style';
 import * as SplashScreen from 'expo-splash-screen';
 import {Button, ButtonType, FSize, FWeight} from 'ui';
 import {Theme, useTheme} from 'context';
@@ -31,9 +31,16 @@ export const StackNavigator = () => {
       screenOptions={{
         headerRight: props => {
           return (
-            <Button onPress={toggleTheme} type={ButtonType.TEXT}>
-              {isLight ? 'Тёмная' : 'Светлая'}
-            </Button>
+            <Switch
+              trackColor={{false: '#767577', true: '#81b0ff'}}
+              thumbColor={isLight ? '#f5dd4b' : '#f4f3f4'}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleTheme}
+              value={!isLight}
+            />
+            // <Button onPress={toggleTheme} type={ButtonType.TEXT}>
+            //   {isLight ? 'Тёмная' : 'Светлая'}
+            // </Button>
           );
         },
         headerTitleAlign: 'center',
