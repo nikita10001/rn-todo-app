@@ -22,7 +22,7 @@ export const NotesScreen: FC<NotesScreenProps> = ({}) => {
     DisplayMode.CARDS,
   );
 
-  const {theme, setTheme} = useTheme();
+  const {theme, toggleTheme, colors} = useTheme();
 
   const selectMode = (mode: DisplayMode) => {
     setDisplayMode(mode);

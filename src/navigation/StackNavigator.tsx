@@ -10,7 +10,7 @@ import {Theme, useTheme} from 'context';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const StackNavigator = () => {
-  const {theme, setTheme, colors} = useTheme();
+  const {theme, toggleTheme, colors} = useTheme();
 
   useEffect(() => {
     (async () => {
@@ -24,9 +24,6 @@ export const StackNavigator = () => {
   }, []);
 
   const isLight = theme === Theme.Light;
-  const toggleTheme = () => {
-    setTheme(isLight ? Theme.Dark : Theme.Light);
-  };
 
   return (
     <Stack.Navigator
