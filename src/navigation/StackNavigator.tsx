@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {Switch} from 'react-native';
+import {Switch, Appearance} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList, ScreensEnum} from './routes';
 import * as Screens from 'screens';
 import * as SplashScreen from 'expo-splash-screen';
-import {Button, ButtonType, FSize, FWeight} from 'ui';
+import {Button, ButtonType, FSize, FWeight, Text} from 'ui';
 import {Theme, useTheme} from 'context';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -75,6 +75,14 @@ export const StackNavigator = () => {
         }}
         name={ScreensEnum.TodoEditScreen}
         component={Screens.TodoEditScreen}
+      />
+      <Stack.Screen
+        options={{
+          title: '',
+          presentation: 'modal',
+        }}
+        name={ScreensEnum.NotesEditScreen}
+        component={Screens.NotesEditScreen}
       />
     </Stack.Navigator>
   );

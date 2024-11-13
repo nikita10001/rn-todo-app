@@ -9,19 +9,23 @@ import {ScreensEnum, useNavigation} from 'navigation';
 import {useAppDispatch} from 'hooks';
 import {deleteTodo} from 'store';
 import {DisplayMode} from '../NotesScreen';
+import {useTheme} from 'context';
 
 interface NotesRowProps extends TodoItem {
   mode?: DisplayMode;
 }
 
 export const NotesRow: FC<NotesRowProps> = memo(
-  ({mode = DisplayMode.CARDS, ...todo}) => {
-    const {id, title, description} = todo;
+  ({mode = DisplayMode.CARDS, ...note}) => {
+    const {colors} = useTheme();
+
+    const {id, title, description} = note;
+
     const navigation = useNavigation();
     const dispatch = useAppDispatch();
 
     const handlePressRow = () => {
-      navigation.navigate(ScreensEnum.TodoEditScreen, {todo});
+      navigation.navigate(ScreensEnum.NotesEditScreen, {note});
     };
 
     const handleDelete = useCallback(() => {
@@ -37,16 +41,26 @@ export const NotesRow: FC<NotesRowProps> = memo(
         : {};
 
     return (
-      <Card isPressable style={[styles.row, modeStyles]}>
+      <Card
+        ripple={false}
+        isPressable
+        onPress={handlePressRow}
+        style={[
+          styles.row,
+          {
+            backgroundColor: colors.noteBackground,
+          },
+          modeStyles,
+        ]}>
         <View
           style={{
             justifyContent: 'center',
           }}>
-          <Text color={COLORS.noteText} numberOfLines={1} w={FWeight.Medium}>
+          <Text color={colors.noteText} numberOfLines={1} w={FWeight.Medium}>
             {title}
           </Text>
           {description && (
-            <Text color={COLORS.noteText} numberOfLines={2}>
+            <Text color={colors.noteText} numberOfLines={2}>
               {description}
             </Text>
           )}
@@ -59,7 +73,6 @@ export const NotesRow: FC<NotesRowProps> = memo(
 const styles = StyleSheet.create({
   row: {
     flex: 1,
-    backgroundColor: COLORS.noteBackground,
     paddingHorizontal: 12,
     paddingVertical: 8,
   },

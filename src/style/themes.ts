@@ -8,6 +8,9 @@ export interface BasicColors {
   content2: string;
   content3: string;
   content4: string;
+  ripple: string;
+  noteBackground: string;
+  noteText: string;
 }
 
 export const themes: {
@@ -26,6 +29,10 @@ export const themes: {
     content2: 'rgba(232, 232, 232, 0.6)',
     content3: 'rgba(255, 255, 255, 0.5)',
     content4: 'rgba(246, 246, 246, 1)',
+    ripple: 'rgba(255,255,255,0.01)',
+
+    noteBackground: '#201f20',
+    noteText: '#e9e9e9',
   },
   light: {
     background: '#fff',
@@ -40,5 +47,9 @@ export const themes: {
     content2: 'rgba(26, 27, 31, .5)',
     content3: 'rgba(209, 209, 209, .3)',
     content4: 'rgba(246, 246, 246, 1)',
+    ripple: 'rgba(0,0,0,0.07)',
+
+    noteBackground: '#fff',
+    noteText: '#333',
   },
 };
